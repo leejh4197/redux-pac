@@ -4,24 +4,26 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import store from "./redux/store";
-import { addTodo } from "./redux/actions";
+import { addTodo, completeTodo } from "./redux/actions";
 
 // 스토어의 변경사항을 구독함
-const unsubscribe = store.subscribe(()=>{
+store.subscribe(()=>{
   console.log(store.getState())
 });
 
-// console.log(store);
 // 액션 상태 변경
 // store.dispatch(addTodo("who"));
 // store.dispatch(addTodo("are"));
 // store.dispatch(addTodo("you"));
+// 구독을 취소함
 // unsubscribe();
 // store.dispatch(addTodo("who"));
 // store.dispatch(addTodo("are"));
 // store.dispatch(addTodo("you"));
 
-// []에서 ["coding"]으로 바뀜
+
+store.dispatch(addTodo('test1'))
+store.dispatch(completeTodo(0))
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
