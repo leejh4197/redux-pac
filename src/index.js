@@ -1,10 +1,29 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import store from "./redux/store";
+import { addTodo } from "./redux/actions";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+// 스토어의 변경사항을 구독함
+const unsubscribe = store.subscribe(()=>{
+  console.log(store.getState())
+});
+
+// console.log(store);
+// 액션 상태 변경
+// store.dispatch(addTodo("who"));
+// store.dispatch(addTodo("are"));
+// store.dispatch(addTodo("you"));
+// unsubscribe();
+// store.dispatch(addTodo("who"));
+// store.dispatch(addTodo("are"));
+// store.dispatch(addTodo("you"));
+
+// []에서 ["coding"]으로 바뀜
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <App />
